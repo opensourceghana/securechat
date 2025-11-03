@@ -1,0 +1,71 @@
+# SecureChat Configuration Example
+# Copy this file to ~/.config/securechat/config.yaml and customize as needed
+
+# User configuration
+user:
+  # Your display name (shown to other users)
+  display_name: "Alice Cooper"
+  
+  # Status message (shown to contacts)
+  status_message: "Working on SecureChat"
+
+# Network configuration
+network:
+  # List of relay servers to use for message routing
+  # These servers cannot read your messages due to end-to-end encryption
+  relay_servers:
+    - "relay1.securechat.dev:8080"
+    - "relay2.securechat.dev:8080"
+    - "relay3.securechat.dev:8080"
+  
+  # Enable peer-to-peer connections when possible
+  # This allows direct connections without relay servers
+  p2p_enabled: true
+  
+  # Connection timeout for network operations
+  connection_timeout: "30s"
+  
+  # Local port for P2P connections (0 for random)
+  port: 0
+  
+  # Bind address for local server (0.0.0.0 for all interfaces)
+  bind_address: "0.0.0.0"
+
+# User interface configuration
+ui:
+  # Theme: "dark", "light", or "auto"
+  theme: "dark"
+  
+  # Enable desktop notifications for new messages
+  notifications: true
+  
+  # Enable sound alerts (requires system sound support)
+  sound_enabled: false
+  
+  # Timestamp format (Go time format)
+  # "15:04" = 24-hour format, "3:04 PM" = 12-hour format
+  timestamp_format: "15:04"
+  
+  # Show typing indicators from other users
+  show_typing: true
+  
+  # Use compact mode for smaller terminals
+  compact_mode: false
+
+# Security configuration
+security:
+  # Automatically accept new cryptographic keys
+  # WARNING: Setting this to true reduces security
+  auto_accept_keys: false
+  
+  # Number of days to keep message history (0 = forever)
+  message_retention_days: 30
+  
+  # Path to export/import cryptographic keys
+  export_keys_path: "~/.config/securechat/keys"
+  
+  # Require manual verification of contact identities
+  require_verification: true
+
+# Debug mode (enables verbose logging)
+debug: false
